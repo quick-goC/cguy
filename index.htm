@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courier Guy Survey - Earn Free Shipping</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .logo {
+            height: 40px;
+            background-color: #d81b60;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+        }
+
+        .logo-text {
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+            line-height: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: 40px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px 0;
+            cursor: pointer;
+        }
+
+        .nav-item.active {
+            color: #6200ea;
+            border-bottom: 3px solid #6200ea;
+            padding-bottom: 10px;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .balance-info {
+            text-align: right;
+            font-size: 12px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .balance-amount {
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        .profile-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #eee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 12px;
+        }
+
+        .settings-icon {
+            color: #999;
+            font-size: 20px;
+        }
+
+        .notification-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #6200ea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .welcome-text {
+            flex: 1;
+        }
+
+        .welcome-text h2 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .referral-link {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .referral-link a {
+            color: #6200ea;
+            text-decoration: none;
+        }
+
+        .balance-cards {
+            display: flex;
+            gap: 10px;
+        }
+
+        .balance-card {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .balance-card-amount {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #6200ea;
+        }
+
+        .balance-card-amount.usd {
+            color: #d81b60;
+        }
+
+        .balance-card-amount.percent {
+            color: #d81b60;
+        }
+
+        .balance-card-label {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .points-info {
+            font-size: 10px;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .update-profile-btn {
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Surveys Section */
+        .surveys-section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .surveys-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .surveys-title {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .view-options {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .view-mode {
+            display: flex;
+            gap: 5px;
+        }
+
+        .view-btn {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 5px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .view-btn.active {
+            background-color: #6200ea;
+            color: white;
+        }
+
+        .sort-dropdown {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .surveys-headline {
+            font-size: 28px;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        .surveys-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .survey-card {
+            position: relative;
+            background-color: #000;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 100px;
+        }
+
+        .survey-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 10px;
+            background-color: #4caf50;
+        }
+
+        .survey-time {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+
+        .survey-points {
+            position: absolute;
+            top: 40px;
+            left: 10px;
+            color: #4caf50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .survey-points-label {
+            color: white;
+            font-size: 14px;
+        }
+
+        .survey-rating {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .survey-rating-count {
+            color: white;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .survey-badge {
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            background-color: #ff9800;
+            color: white;
+            padding: 2px 5px;
+            font-size: 12px;
+            transform: rotate(-15deg);
+        }
+
+        .survey-info {
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .survey-info a {
+            color: #6200ea;
+            text-decoration: none;
+        }
+
+        /* Referral Section */
+        .referral-section {
+            background-color: #2196f3;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .referral-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .referral-options {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .social-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .facebook-btn {
+            background-color: #3b5998;
+        }
+
+        .whatsapp-btn {
+            background-color: #25d366;
+        }
+
+        .twitter-btn {
+            background-color: #1da1f2;
+        }
+
+        .or-divider {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .referral-link-input {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .referral-link-input input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .copy-btn {
+            background-color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .referral-note {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        footer a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        /* Notification Bell */
+        .notification-bell {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: #d81b60;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+        /* Survey Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .survey-title {
+            font-size: 24px;
+            color: #6200ea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 15px;
+        }
+
+        .survey-question {
+            margin-bottom: 30px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .survey-question h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .options-list {
+            list-style: none;
+        }
+
+        .option-item {
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .option-item:hover {
+            transform: translateX(5px);
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .option-label:hover {
+            background-color: #f0f0f0;
+        }
+
+        .option-radio {
+            margin-right: 15px;
+            width: 18px;
+            height: 18px;
+            accent-color: #6200ea;
+        }
+
+        .next-btn, .submit-btn {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+            display: block;
+            margin-left: auto;
+        }
+
+        .next-btn:hover, .submit-btn:hover {
+            background-color: #5000d6;
+        }
+
+        .next-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        /* Prize Section */
+        .prize-section {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .prize-title {
+            font-size: 28px;
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .prize-subtitle {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .prize-image {
+            max-width: 300px;
+            margin: 20px auto;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .prize-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .prize-value {
+            font-size: 22px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #6200ea;
+            background-color: #f0f0f0;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        .claim-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .claim-btn:hover {
+            background-color: #3d9140;
+            transform: scale(1.05);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 20px 0;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #6200ea;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        /* Navigation Modal */
+        .nav-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .nav-modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .nav-modal-title {
+            font-size: 24px;
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .nav-modal-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .currency-conversion {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+
+        .currency-conversion strong {
+            color: #6200ea;
+        }
+
+        .start-survey-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .start-survey-btn:hover {
+            background-color: #3d9140;
+        }
+
+        /* Logo Upload Styles */
+        .logo-upload {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .logo-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .logo-container:hover::after {
+            content: "Click to change logo";
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            white-space: nowrap;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .surveys-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 10px;
+            }
+            
+            .nav-item span {
+                display: none;
+            }
+            
+            .welcome-section {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .balance-cards {
+                width: 100%;
+            }
+            
+            .surveys-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-content, .nav-modal-content {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 10px;
+            }
+            
+            .nav-menu {
+                gap: 5px;
+            }
+            
+            .balance-cards {
+                flex-direction: column;
+            }
+            
+            .welcome-section, .surveys-section, .referral-section {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .surveys-headline {
+                font-size: 20px;
+            }
+            
+            .social-share {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-text">COURIER GUY</div>
+                <input type="file" class="logo-upload" id="logoUpload" accept="image/*">
+            </div>
+        </div>
+        
+        <div class="nav-menu">
+            <a href="#" class="nav-item active" data-nav="home">
+                <span class="nav-icon">⊞</span>
+                <span>Home</span>
+            </a>
+            <a href="#" class="nav-item" data-nav="rewards">
+                <span class="nav-icon">🏅</span>
+                <span>Rewards</span>
+            </a>
+            <a href="#" class="nav-item" data-nav="history">
+                <span class="nav-icon">🕒</span>
+                <span>History</span>
+            </a>
+            <a href="#" class="nav-item" data-nav="refer">
+                <span class="nav-icon">🔄</span>
+                <span>Refer & Earn</span>
+            </a>
+            <a href="#" class="nav-item" data-nav="help">
+                <span class="nav-icon">❓</span>
+                <span>Help</span>
+            </a>
+        </div>
+        
+        <div class="user-profile">
+            <div class="balance-info" id="balanceInfo">
+                <div>Your balance:</div>
+                <div>
+                    <span class="balance-amount">0 USD</span>
+                    <span class="balance-amount">0.00 Points</span>
+                </div>
+            </div>
+            <div class="profile-icon">SE</div>
+            <div class="settings-icon">⚙️</div>
+            <div class="notification-icon">🔔</div>
+        </div>
+    </header>
+    
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="welcome-text">
+            <h2>Welcome back, nice to see you again.</h2>
+            <div class="referral-link">Your referral link: <a href="https://za.tgm.link/ExCH265789">https://za.tgm.link/ExCH265789</a></div>
+        </div>
+        
+        <div class="balance-cards">
+            <div class="balance-card">
+                <div class="balance-card-amount usd">0 USD</div>
+                <div class="balance-card-label">Current balance</div>
+            </div>
+            
+            <div class="balance-card">
+                <div class="balance-card-amount">0.00 Points</div>
+                <div class="balance-card-label">Current points balance</div>
+                <div class="points-info">1 Point = 1 USD</div>
+            </div>
+            
+            <div class="balance-card">
+                <div class="balance-card-amount percent">0%</div>
+                <div class="balance-card-label">Profile filling</div>
+            </div>
+            
+            <button class="update-profile-btn" id="updateProfileBtn">Update profile</button>
+        </div>
+    </section>
+    
+    <!-- Surveys Section -->
+    <section class="surveys-section">
+        <div class="surveys-header">
+            <div class="surveys-title">Available surveys</div>
+            
+            <div class="view-options">
+                <div>View:</div>
+                <div class="view-mode">
+                    <button class="view-btn active">☰</button>
+                    <button class="view-btn">⊞</button>
+                </div>
+                
+                <div>Sort:</div>
+                <select class="sort-dropdown">
+                    <option>Auto</option>
+                    <option>Newest</option>
+                    <option>Highest Points</option>
+                    <option>Shortest Time</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="surveys-headline">
+            click any of the survey available below to win a curier guy shippment
+        </div>
+        
+        <div class="surveys-grid">
+            <!-- Survey 1 -->
+            <div class="survey-card" data-survey="1">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+            
+            <!-- Survey 2 -->
+            <div class="survey-card" data-survey="2">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+            
+            <!-- Survey 3 -->
+            <div class="survey-card" data-survey="3">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+            
+            <!-- Survey 4 -->
+            <div class="survey-card" data-survey="4">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+            
+            <!-- Survey 5 -->
+            <div class="survey-card" data-survey="5">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+            
+            <!-- Survey 6 -->
+            <div class="survey-card" data-survey="1">
+                <div class="survey-time">🕒 2 min</div>
+                <div class="survey-points">225 <span class="survey-points-label">Points</span></div>
+                <div class="survey-rating">★★★★★ <span class="survey-rating-count">(78256)</span></div>
+                <div class="survey-badge">225%</div>
+            </div>
+        </div>
+        
+        <div class="survey-info">
+            Kindly read each survey's question carefully and take your time in answering them <strong>accurately and honestly</strong>. You are offered the opportunity to earn money through online surveys due to the need of the honest feedback. Answers that are not truthful will make the research useless and you will eventually find yourself with no new surveys to complete.
+            <br><br>
+            Please <a href="#">leave the feedback</a> about Courier Guy Survey
+        </div>
+    </section>
+    
+    <!-- Referral Section -->
+    <section class="referral-section">
+        <h2 class="referral-title">Refer a friend to our panel and earn points!</h2>
+        
+        <div class="referral-options">
+            <div>
+                <div>Publish your unique referral URL on your social profiles</div>
+                <div class="social-share">
+                    <a href="#" class="social-btn facebook-btn">Facebook</a>
+                    <a href="#" class="social-btn whatsapp-btn">Whatsapp</a>
+                    <a href="#" class="social-btn twitter-btn">Twitter</a>
+                </div>
+            </div>
+            
+            <div class="or-divider">- OR -</div>
+            
+            <div>
+                <div class="referral-note">Copy your unique link and send it to your friends - you'll get <span class="highlight">20%</span> points earned by them!</div>
+                <div class="referral-link-input">
+                    <input type="text" value="https://za.tgm.link/ExCH265789" readonly>
+                    <button class="copy-btn">📋</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Faq</a>
+        <a href="#">Contact</a>
+    </footer>
+    
+    <!-- Notification Bell -->
+    <div class="notification-bell">🔔</div>
+    
+    <!-- Survey Modal -->
+    <div class="modal" id="surveyModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="surveyContent">
+                <!-- Survey content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Modal -->
+    <div class="modal" id="navModal">
+        <div class="modal-content nav-modal-content">
+            <span class="close-btn" id="navCloseBtn">&times;</span>
+            <h2 class="nav-modal-title">Courier Guy Survey</h2>
+            <p class="nav-modal-message">Answer a survey and claim Courier Guy free shipment!</p>
+            <div class="currency-conversion">
+                <p>1 USD = <strong>18.50 ZAR</strong></p>
+                <p>All prices shown in USD will be paid in Rands</p>
+            </div>
+            <button class="start-survey-btn" id="startSurveyBtn">Start Survey Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Survey Data
+        const surveys = {
+            1: {
+                title: "Courier Service Experience",
+                questions: [
+                    {
+                        question: "How satisfied are you with the delivery time?",
+                        options: [
+                            "Very Satisfied",
+                            "Satisfied",
+                            "Neutral",
+                            "Dissatisfied",
+                            "Very Dissatisfied"
+                        ]
+                    },
+                    {
+                        question: "How do you rate the professionalism of the delivery personnel?",
+                        options: [
+                            "Excellent",
+                            "Good",
+                            "Average",
+                            "Below Average",
+                            "Poor"
+                        ]
+                    },
+                    {
+                        question: "How accurate was the delivery in terms of the estimated delivery time?",
+                        options: [
+                            "On Time",
+                            "Slightly Late (0-30 minutes)",
+                            "Late (30 minutes - 1 hour)",
+                            "Very Late (1 hour +)",
+                            "Early"
+                        ]
+                    },
+                    {
+                        question: "Did you experience any issues with tracking your package during the delivery process?",
+                        options: [
+                            "No, it was smooth",
+                            "Yes, I had trouble tracking it",
+                            "The tracking information was not updated regularly",
+                            "Tracking was not available at all",
+                            "I did not use the tracking service"
+                        ]
+                    },
+                    {
+                        question: "How would you rate the overall packaging of your delivery?",
+                        options: [
+                            "Excellent (Secure and intact)",
+                            "Good (Slight damage but acceptable)",
+                            "Average (Some minor damage)",
+                            "Poor (Damaged significantly)",
+                            "Very Poor (Packaging was inadequate)"
+                        ]
+                    }
+                ]
+            },
+            2: {
+                title: "Customer Support and Service Quality",
+                questions: [
+                    {
+                        question: "How satisfied are you with the customer support experience?",
+                        options: [
+                            "Very Satisfied",
+                            "Satisfied",
+                            "Neutral",
+                            "Dissatisfied",
+                            "Very Dissatisfied"
+                        ]
+                    },
+                    {
+                        question: "Was the customer support team able to resolve your issue in a timely manner?",
+                        options: [
+                            "Yes, very quickly",
+                            "Yes, it took some time but was resolved",
+                            "No, the issue was not resolved",
+                            "No, I am still waiting for a response",
+                            "Not applicable (I did not contact support)"
+                        ]
+                    },
+                    {
+                        question: "How easy was it to contact customer service?",
+                        options: [
+                            "Very Easy",
+                            "Easy",
+                            "Neutral",
+                            "Difficult",
+                            "Very Difficult"
+                        ]
+                    },
+                    {
+                        question: "Did the customer support staff demonstrate adequate knowledge of the service?",
+                        options: [
+                            "Yes, they were very knowledgeable",
+                            "Yes, they knew enough to help",
+                            "Neutral, they did not know much",
+                            "No, they were not helpful",
+                            "No, they were not knowledgeable at all"
+                        ]
+                    },
+                    {
+                        question: "How would you rate the courtesy and professionalism of the support staff?",
+                        options: [
+                            "Excellent",
+                            "Good",
+                            "Neutral",
+                            "Poor",
+                            "Very Poor"
+                        ]
+                    }
+                ]
+            },
+            3: {
+                title: "Delivery Pricing and Value for Money",
+                questions: [
+                    {
+                        question: "How would you rate the pricing of the courier services?",
+                        options: [
+                            "Very Affordable",
+                            "Affordable",
+                            "Reasonable",
+                            "Expensive",
+                            "Very Expensive"
+                        ]
+                    },
+                    {
+                        question: "Do you feel the prices reflect the quality of service provided?",
+                        options: [
+                            "Yes, completely",
+                            "Yes, mostly",
+                            "Neutral",
+                            "No, not really",
+                            "No, not at all"
+                        ]
+                    },
+                    {
+                        question: "Are there any additional fees that you were not aware of at the time of booking?",
+                        options: [
+                            "No, everything was clear",
+                            "Yes, but they were disclosed during booking",
+                            "Yes, and I was surprised by them",
+                            "I don't recall",
+                            "Not applicable (I didn't book directly)"
+                        ]
+                    },
+                    {
+                        question: "How likely are you to use the service again based on the pricing?",
+                        options: [
+                            "Very Likely",
+                            "Likely",
+                            "Neutral",
+                            "Unlikely",
+                            "Very Unlikely"
+                        ]
+                    },
+                    {
+                        question: "How would you rate the value for money of the service?",
+                        options: [
+                            "Excellent value for money",
+                            "Good value for money",
+                            "Average value for money",
+                            "Poor value for money",
+                            "Very poor value for money"
+                        ]
+                    }
+                ]
+            },
+            4: {
+                title: "Delivery Speed and Reliability",
+                questions: [
+                    {
+                        question: "How would you rate the speed of your delivery?",
+                        options: [
+                            "Very Fast",
+                            "Fast",
+                            "Average",
+                            "Slow",
+                            "Very Slow"
+                        ]
+                    },
+                    {
+                        question: "Did the delivery arrive within the expected delivery window?",
+                        options: [
+                            "Yes, exactly as expected",
+                            "Yes, but slightly early",
+                            "Yes, but slightly late",
+                            "No, it was much later than expected",
+                            "No, it arrived much earlier than expected"
+                        ]
+                    },
+                    {
+                        question: "How often do you experience delays with deliveries?",
+                        options: [
+                            "Never",
+                            "Rarely",
+                            "Sometimes",
+                            "Often",
+                            "Always"
+                        ]
+                    },
+                    {
+                        question: "How confident are you in the reliability of the courier service to handle sensitive items?",
+                        options: [
+                            "Very Confident",
+                            "Confident",
+                            "Neutral",
+                            "Not Confident",
+                            "Not at all Confident"
+                        ]
+                    },
+                    {
+                        question: "Have you experienced lost or damaged packages during delivery?",
+                        options: [
+                            "No, never",
+                            "Yes, once or twice",
+                            "Yes, but it was resolved quickly",
+                            "Yes, multiple times",
+                            "Yes, but the issue was not resolved"
+                        ]
+                    }
+                ]
+            },
+            5: {
+                title: "Overall Satisfaction and Recommendations",
+                questions: [
+                    {
+                        question: "How satisfied are you with the overall delivery experience?",
+                        options: [
+                            "Very Satisfied",
+                            "Satisfied",
+                            "Neutral",
+                            "Dissatisfied",
+                            "Very Dissatisfied"
+                        ]
+                    },
+                    {
+                        question: "Would you recommend the courier service to a friend or colleague?",
+                        options: [
+                            "Definitely",
+                            "Probably",
+                            "Not Sure",
+                            "Probably Not",
+                            "Definitely Not"
+                        ]
+                    },
+                    {
+                        question: "What is the most important factor in your decision to use a courier service?",
+                        options: [
+                            "Delivery speed",
+                            "Pricing",
+                            "Customer support",
+                            "Reliability",
+                            "Packaging and handling"
+                        ]
+                    },
+                    {
+                        question: "How do you rate the ease of booking and scheduling a delivery?",
+                        options: [
+                            "Very Easy",
+                            "Easy",
+                            "Neutral",
+                            "Difficult",
+                            "Very Difficult"
+                        ]
+                    },
+                    {
+                        question: "How likely are you to use this courier service again in the future?",
+                        options: [
+                            "Very Likely",
+                            "Likely",
+                            "Neutral",
+                            "Unlikely",
+                            "Very Unlikely"
+                        ]
+                    }
+                ]
+            }
+        };
+
+        // Variables
+        let currentSurvey = null;
+        let currentQuestion = 0;
+        let answers = [];
+
+        // DOM Elements
+        const modal = document.getElementById('surveyModal');
+        const navModal = document.getElementById('navModal');
+        const surveyContent = document.getElementById('surveyContent');
+        const closeBtn = document.querySelector('.close-btn');
+        const navCloseBtn = document.getElementById('navCloseBtn');
+        const logoUpload = document.getElementById('logoUpload');
+        const navItems = document.querySelectorAll('.nav-item');
+        const balanceInfo = document.getElementById('balanceInfo');
+        const updateProfileBtn = document.getElementById('updateProfileBtn');
+        const startSurveyBtn = document.getElementById('startSurveyBtn');
+
+        // Event Listeners
+        document.querySelectorAll('.survey-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const surveyId = parseInt(card.getAttribute('data-survey'));
+                openSurvey(surveyId);
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        navCloseBtn.addEventListener('click', () => {
+            navModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+            if (e.target === navModal) {
+                navModal.style.display = 'none';
+            }
+        });
+
+        // Navigation items click event
+        navItems.forEach(item => {
+            if (item.getAttribute('data-nav') !== 'home') {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showNavModal();
+                });
+            }
+        });
+
+        // Balance info click event
+        balanceInfo.addEventListener('click', () => {
+            showNavModal();
+        });
+
+        // Update profile button click event
+        updateProfileBtn.addEventListener('click', () => {
+            showNavModal();
+        });
+
+        // Start survey button click event
+        startSurveyBtn.addEventListener('click', () => {
+            navModal.style.display = 'none';
+            openSurvey(1); // Open the first survey by default
+        });
+
+        // Logo Upload Functionality
+        logoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const logoContainer = document.querySelector('.logo');
+                    logoContainer.innerHTML = `<img src="${event.target.result}" alt="Courier Guy Logo" style="height: 100%; width: 100%; object-fit: contain;">`;
+                    logoContainer.appendChild(logoUpload);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Functions
+        function showNavModal() {
+            navModal.style.display = 'block';
+        }
+
+        function openSurvey(surveyId) {
+            currentSurvey = surveyId;
+            currentQuestion = 0;
+            answers = [];
+            showQuestion();
+            modal.style.display = 'block';
+        }
+
+        function showQuestion() {
+            const survey = surveys[currentSurvey];
+            
+            if (currentQuestion < survey.questions.length) {
+                const question = survey.questions[currentQuestion];
+                const progress = ((currentQuestion) / survey.questions.length) * 100;
+                
+                let html = `
+                    <h2 class="survey-title">${survey.title}</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: ${progress}%"></div>
+                    </div>
+                    <p>Question ${currentQuestion + 1} of ${survey.questions.length}</p>
+                    <div class="survey-question">
+                        <h3>${question.question}</h3>
+                        <ul class="options-list">
+                `;
+                
+                question.options.forEach((option, index) => {
+                    html += `
+                        <li class="option-item">
+                            <label class="option-label">
+                                <input type="radio" name="question" value="${index}" class="option-radio">
+                                ${option}
+                            </label>
+                        </li>
+                    `;
+                });
+                
+                html += `
+                        </ul>
+                    </div>
+                    <button class="next-btn" disabled>${currentQuestion === survey.questions.length - 1 ? 'Submit' : 'Next'}</button>
+                `;
+                
+                surveyContent.innerHTML = html;
+                
+                // Add event listeners to radio buttons
+                const radioButtons = document.querySelectorAll('.option-radio');
+                const nextBtn = document.querySelector('.next-btn');
+                
+                radioButtons.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        nextBtn.disabled = false;
+                    });
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    const selectedOption = document.querySelector('input[name="question"]:checked');
+                    if (selectedOption) {
+                        answers.push(parseInt(selectedOption.value));
+                        currentQuestion++;
+                        showQuestion();
+                    }
+                });
+            } else {
+                showPrize();
+            }
+        }
+
+        function showPrize() {
+            let html = `
+                <div class="prize-section">
+                    <h2 class="prize-title">Congratulations!</h2>
+                    <p class="prize-subtitle">You have won an item worth 2800 from Courier Guy!</p>
+                    <div class="prize-image">
+                        <img src="/placeholder.svg?height=200&width=300" alt="Premium Shoes">
+                    </div>
+                    <p class="prize-value">Value: R2800</p>
+                    <a href="https://www.fmt.bv" class="claim-btn">CLAIM ORDER FOR FREE SHIPPING</a>
+                </div>
+            `;
+            
+            surveyContent.innerHTML = html;
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Replace all TGM references with Courier Guy
+            document.querySelectorAll('a[href*="tgm"]').forEach(link => {
+                link.textContent = link.textContent.replace('tgm', 'courierguy');
+            });
+            
+            // Convert USD to ZAR in display
+            document.querySelectorAll('.balance-card-amount.usd').forEach(element => {
+                const text = element.textContent;
+                if (text.includes('USD')) {
+                    const value = parseFloat(text);
+                    element.textContent = `0 ZAR`;
+                }
+            });
+            
+            // Update document title
+            document.title = "Courier Guy Survey - Earn Free Shipping";
+        });
+    </script>
+</body>
+</html>

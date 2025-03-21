@@ -745,10 +745,16 @@
         }
 
         .logo-container {
-            position: relative;
-            cursor: pointer;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
 
+.logo-image {
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+}
         .logo-container:hover::after {
             content: "Click to change logo";
             position: absolute;
@@ -828,12 +834,8 @@
 <body>
     <!-- Header -->
     <header>
-        <<div class="logo-container">
-    <div class="logo">
-        <img src="image/logo (1).png" alt="Courier Guy Logo" class="logo-image">
-        <div class="logo-text">COURIER GUY</div>
-        <input type="file" class="logo-upload" id="logoUpload" accept="image/*">
-    </div>
+    <div class="logo-container">
+    <img src="your-company-logo.png" alt="Courier Guy Logo" class="logo-image">
 </div>
         
         <div class="nav-menu">
